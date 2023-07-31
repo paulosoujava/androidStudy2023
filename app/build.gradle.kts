@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp") version "1.8.0-1.0.8"
 }
 
 android {
@@ -34,6 +35,10 @@ android {
         jvmTarget = "1.8"
     }
 
+    sourceSets.configureEach {
+        kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
+    }
+
 }
 
 dependencies {
@@ -56,4 +61,10 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.5.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
 
+
+    implementation("com.github.yanneckreiss.kconmapper:annotations:1.0.0-alpha06")
+    ksp("com.github.yanneckreiss.kconmapper:ksp:1.0.0-alpha06")
+
+
 }
+

@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 //USAGE
 fun main() {
     /*
+      val state: String by viewModel.state.collectAsStateWithLifecycle()
     when (result) {
         is Result.Success -> Item()
         is Result.Loading -> Item.Loading()
